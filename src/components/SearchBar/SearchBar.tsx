@@ -1,3 +1,4 @@
+import "./Searchbar.css";
 const SearchBar = () => {
   return (
     <form className="form">
