@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Cards from "./components/Cards/Cards";
 
 function App() {
   const [latitude, setLatitude] = useState(null);
@@ -64,11 +65,13 @@ function App() {
     <>
       <h1>Weather app</h1>
       {weatherData ? (
-        <div>
-          <p>Location: {weatherData.location.name}</p>
-          <p>Temperature: {weatherData.current.temp_c}°C</p>
-          <p>Condition: {weatherData.current.condition.text}</p>
-        </div>
+        <Cards
+          imgUrl={weatherData.current.condition.icon}
+          location={weatherData.location.name}
+          temp_c={weatherData.current.temp_c}
+          weather={weatherData.current.condition.text}
+          temp_f={weatherData.current.temp_f}
+        />
       ) : (
         <p>Loading...</p>
       )}
